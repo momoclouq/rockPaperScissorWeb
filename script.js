@@ -33,6 +33,21 @@ function playRound(playerSelection, computerSelection){
     return "What the hell";
 }
 
-//testing
-const playerSelection = "Rock";
-console.log(playRound(playerSelection, computerPlay()));
+function game(){
+    let yourScore = 0;
+    let computerScore = 0;
+
+    for (i = 0; i < 5; i++){
+        let result = playRound(prompt("Enter your move"), computerPlay());
+        console.log("Round " + (i + 1) + ": " + result);
+
+        if (result.substring(4, 7) === "win") yourScore++;
+        else if (result.substring(4,87) === "lose") computerScore++;
+    }
+
+    if (yourScore > computerScore) console.log("You win ultimately! " + yourScore + " to " + computerScore);
+    else if (yourScore == computerScore) console.log("Draw!!!!");
+    else console.log("You lose ultimately! " + computerScore + " to " + yourScore);
+}
+
+game();
